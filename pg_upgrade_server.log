@@ -1,0 +1,14 @@
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Dec 29 09:07:26 2020
+-----------------------------------------------------------------
+
+command: "/usr/local/Cellar/postgresql/13.1/bin/pg_ctl" -w -l "pg_upgrade_server.log" -D "/usr/local/var/postgres" -o "-p 50432 -c autovacuum=off -c autovacuum_freeze_max_age=2000000000 -c synchronous_commit=off -c fsync=off -c full_page_writes=off -c vacuum_defer_cleanup_age=0  -c listen_addresses='' -c unix_socket_permissions=0700" start >> "pg_upgrade_server.log" 2>&1
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....2020-12-29 09:07:26.742 JST [78982] FATAL:  lock file "postmaster.pid" already exists
+2020-12-29 09:07:26.742 JST [78982] HINT:  Is another postmaster (PID 78962) running in data directory "/usr/local/var/postgres"?
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+
+

@@ -1,0 +1,7 @@
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Dec 29 09:07:26 2020
+-----------------------------------------------------------------
+
+There seems to be a postmaster servicing the new cluster.
+Please shutdown that postmaster and try again.
