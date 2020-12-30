@@ -18,6 +18,7 @@ class RakutenBookDisplay
       item_caption: item_caption,
       amazon_review_score: amazon_review_score,
       amazon_review_count: amazon_review_count,
+      amazon_link: amazon_link,
       page_count: page_count,
     }
   end
@@ -74,6 +75,10 @@ class RakutenBookDisplay
 
   def amazon_review_count
     amazon_book&.review_count
+  end
+
+  def amazon_link
+    amazon_book&.link
   end
 
   def page_count
