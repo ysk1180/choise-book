@@ -9,7 +9,7 @@ class RakutenBookDisplay
     {
       title: title,
       image_url: image_url,
-      published_data: published_date,
+      published_date: published_date,
       isbn: isbn,
       price: price,
       rakuten_review_score: review_score,
@@ -30,7 +30,8 @@ class RakutenBookDisplay
   end
 
   def image_url
-    item['mediumImageUrl']
+    item['mediumImageUrl'] || amazon_book&.image_url
+
   end
 
   def published_date
@@ -60,7 +61,7 @@ class RakutenBookDisplay
   end
 
   def item_caption
-    item['itemCaption'].truncate(100)
+    item['itemCaption'].truncate(50)
   end
 
   def amazon_book
