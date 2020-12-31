@@ -9,9 +9,12 @@ class BooksController < ApplicationController
   end
 
   def show
-    return {}.to_json if params[:isbn].blank?
+    return render {}.to_json if params[:isbn].blank?
 
     book = AmazonGetItem.new(params[:isbn]).run
     render json: book
+
+  rescue # (おそらく)AmazonのAPIのLimitの影響で頻繁にエラーするが、アプリケーション上許容しているので正常系で{}を返す
+    render {}.to_json
   end
 end
