@@ -20,6 +20,7 @@ class RakutenBookDisplay
       amazon_review_count: amazon_review_count,
       amazon_link: amazon_link,
       page_count: page_count,
+      genre_id: genre_id,
     }
   end
 
@@ -62,6 +63,10 @@ class RakutenBookDisplay
 
   def item_caption
     item['itemCaption'].truncate(50)
+  end
+
+  def genre_id
+    item['booksGenreId']
   end
 
   def amazon_book
