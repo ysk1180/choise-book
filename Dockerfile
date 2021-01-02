@@ -10,6 +10,7 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 # Gemfileをいじってないときはキャッシュを使うために、Gemfileを先にコピーしてbundle installしてる
+RUN apk del build-packages
 COPY . /myapp
 
 # Add a script to be executed every time the container starts.
