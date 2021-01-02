@@ -25,6 +25,11 @@ development:
   <<: *default
   database: choise_book_development
 
+  # docker-composeのために追加（参考：https://docs.docker.com/compose/rails/#connect-the-database ）
+  host: db
+  username: postgres
+  password: password
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
