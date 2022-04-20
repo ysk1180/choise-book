@@ -3,7 +3,6 @@ class BooksController < ApplicationController
     return [].to_json if params[:q].blank?
 
     page = (params[:page].presence || 1).to_i
-    SearchWord.create(word: params[:q])
 
     books = RakutenSearch.new(params[:q], page).run
     render json: books
