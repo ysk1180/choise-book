@@ -62,7 +62,7 @@ class RakutenBookDisplay
   end
 
   def item_caption
-    item['itemCaption'].truncate(50)
+    item['itemCaption']&.tr('０-９ａ-ｚＡ-Ｚ．','0-9a-zA-Z.').truncate(150)
   end
 
   def genre_id
