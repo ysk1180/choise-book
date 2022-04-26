@@ -7,7 +7,7 @@ class AmazonGetReview
 
   # APIがレビューに対応してないのでサイトから取得。参考にしたサイト：https://blog.tsurubee.tech/entry/2016/06/26/214729
   def rate
-    @rate ||= doc.xpath('//*[@id="cm_cr-product_info"]/div/div[1]/div[2]/div/div/div[2]/div/span').text.delete('星5つ中の').to_f
+    @rate ||= doc.xpath('//*[@id="cm_cr-product_info"]/div/div[1]/div[2]/div/div/div[2]/div/span').text.match(/星5つ中の(.+)/)&.captures&.first.to_f
   end
 
   def count
