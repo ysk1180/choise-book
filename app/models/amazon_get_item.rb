@@ -6,11 +6,10 @@ class AmazonGetItem
   end
 
   def run
-    amazon_book = AmazonBook.find_by(isbn: isbn)
-    return amazon_book.display if amazon_book
+    amazon_book = AmazonBook.find_or_initialize_by(isbn: isbn)
 
     amazon_book_display = AmazonBookDisplay.new(item, isbn_10)
-    amazon_book = AmazonBook.create_with(amazon_book_display, isbn)
+    amazon_book = amazon_book.save_with(amazon_book_display)
     amazon_book.display
   end
 

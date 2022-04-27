@@ -9,9 +9,8 @@ class AmazonBook < ApplicationRecord
     }
   end
 
-  def self.create_with(amazon_book_display, isbn)
-    create(
-      isbn: isbn,
+  def save_with(amazon_book_display)
+    update!( # 元々保存されてないデータでもupdate!でうまくいったのでこうしている(中でsave!を呼び出していた)
       title: amazon_book_display.title,
       page_count: amazon_book_display.page_count,
       image_url: amazon_book_display.image_url,
@@ -19,5 +18,6 @@ class AmazonBook < ApplicationRecord
       review_count: amazon_book_display.review_count,
       link: amazon_book_display.link,
     )
+    self
   end
 end

@@ -19,6 +19,7 @@ class RakutenBookDisplay
       amazon_review_score: amazon_review_score,
       amazon_review_count: amazon_review_count,
       amazon_link: amazon_link,
+      amazon_updated_at: amazon_updated_at,
       page_count: page_count,
       genre_id: genre_id,
     }
@@ -85,6 +86,10 @@ class RakutenBookDisplay
 
   def amazon_link
     amazon_book&.link
+  end
+
+  def amazon_updated_at
+    amazon_book&.updated_at
   end
 
   def page_count
